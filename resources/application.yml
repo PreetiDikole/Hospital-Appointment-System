@@ -1,0 +1,15 @@
+server:
+  port: 8082
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/hospital_appointment_system
+    username: postgres
+    password: root4533
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update   # Hibernate will auto create/update tables
+    show-sql: true       # Console madhe queries disnar
+    open-in-view: false  # best practice (warning avoid karayla)
