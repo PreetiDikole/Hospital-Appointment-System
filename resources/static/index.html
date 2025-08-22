@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Patients List</title>
+</head>
+<body>
+  <h1>Patients</h1>
+  <button onclick="window.location.href='add-patient.html'">Add Patient</button>
+  <ul id="patients"></ul>
+
+  <script>
+    async function loadPatients() {
+      const res = await fetch('/api/patients');
+      const data = await res.json();
+      const list = document.getElementById('patients');
+      list.innerHTML = '';
+      data.forEach(p => {
+        const li = document.createElement('li');
+        li.textContent = `${p.name} (${p.email}) - ${p.phone}`;
+        list.appendChild(li);
+      });
+    }
+    loadPatients();
+  </script>
+</body>
+</html>
